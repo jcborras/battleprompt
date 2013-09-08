@@ -3,7 +3,7 @@ battleprompt
 
 All sorts of prompts for all sorts of battles.
 
-Customize the snippet below for you environment and add it somewhere
+Customize the snippet below for your environment and add it somewhere
 in `~/.bashrc`:
 
     battlepromptdir=$HOME/src/git-trees/battleprompt
