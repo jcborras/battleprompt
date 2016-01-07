@@ -1,15 +1,18 @@
 echo "Sourcing battleprompt"
 
+filesdir=$HOME/src/git-trees/battleprompt
+
+[ -f $filesdir/term_colors ] && source $filesdir/term_colors
+
 function git_prompt {
     filesdir=$HOME/src/git-trees/battleprompt
-    if [ -f $filesdir/term_colors ] && [ -f $filesdir/git_prompt ] ; then
-        . $filesdir/term_colors
-        . $filesdir/git_prompt
-    fi
-    unset filedir
+    [ -f $filesdir/git_prompt ] && source $filesdir/git_prompt
+    unset filesdir
 }
 
 function regular_prompt {
-    PS1="$Green venv:$(a=`echo $VIRTUAL_ENV |rev|cut -f1 -d/ | rev` ; [ -n "$a" ] && echo $a\  )"\
+    PS1="$Green$(a=`echo $VIRTUAL_ENV |rev|cut -f1 -d/ | rev` ; [ -n "$a" ] && echo venv:$a\  )"\
 "${debian_chroot:+($debian_chroot)}$BGreen\u@\h\[\033[00m\]:$BBlue\w$BWhite \$$ColorOff "
 }
+
+unset filesdir
