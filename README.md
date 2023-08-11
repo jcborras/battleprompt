@@ -1,7 +1,7 @@
 battleprompt
 ============
 
-All sorts of prompts for all sorts of battles.
+**Moved to the configuration files repo**
 
 Customize the snippet below for your environment and add it somewhere
 in `~/.bashrc`:

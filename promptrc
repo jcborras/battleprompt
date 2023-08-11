@@ -1,13 +1,19 @@
+#!/usr/bin/env sh
+# -*- mode: sh; sh-shell: sh; eval: (auto-fill-mode 1); -*-
+
 echo "Sourcing battleprompt"
 
-filesdir=$HOME/src/git-trees/battleprompt
+FILESDIR=${FILESDIR:-$HOME/src/repos/battleprompt}
 
-[ -f $filesdir/term_colors ] && source $filesdir/term_colors
+[ -f $FILESDIR/term_colors ] && source $FILESDIR/term_colors
 
 function git_prompt {
-    filesdir=$HOME/src/git-trees/battleprompt
-    [ -f $filesdir/git_prompt ] && source $filesdir/git_prompt
-    unset filesdir
+    FILESDIR=${FILESDIR:-$HOME/src/repos/battleprompt}
+    [ -f $FILESDIR/git_prompt ] && {
+        source "$FILESDIR/git_prompt"
+    } || {
+        echo "$FILEDIR not found"
+    }
 }
 
 function regular_prompt {
@@ -15,4 +21,4 @@ function regular_prompt {
 "${debian_chroot:+($debian_chroot)}$BGreen\u@\h\[\033[00m\]:$BBlue\w$BWhite \$$ColorOff "
 }
 
-unset filesdir
+unset FILESDIR

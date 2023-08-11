@@ -1,9 +1,12 @@
+#!/usr/bin/env sh
+# -*- mode: sh; sh-shell: sh; eval: (auto-fill-mode 1); -*-
+
 if [[ ${EUID} == 0 ]] ; then
     sq_color=$Red
 else 
     sq_color=$Blue
 fi
- 
+
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM=auto,verbose
